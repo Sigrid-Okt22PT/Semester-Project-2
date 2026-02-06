@@ -1,5 +1,10 @@
 // js/profiles.js
-import { apiAuction, requireAuth, setStoredProfile, getStoredProfile } from "./script.js";
+import {
+  apiAuction,
+  requireAuth,
+  setStoredProfile,
+  getStoredProfile,
+} from "./script.js";
 
 /**
  * Get a single profile (includes credits).
@@ -95,7 +100,9 @@ export async function getCredits(name) {
  */
 export async function listListingsByProfile(name, opts) {
   if (!opts) opts = {};
-  return apiAuction("/profiles/" + encodeURIComponent(name) + "/listings", { query: opts });
+  return apiAuction("/profiles/" + encodeURIComponent(name) + "/listings", {
+    query: opts,
+  });
 }
 
 /**
@@ -108,5 +115,7 @@ export async function listListingsByProfile(name, opts) {
  */
 export async function listBidsByProfile(name, opts) {
   if (!opts) opts = {};
-  return apiAuction("/profiles/" + encodeURIComponent(name) + "/bids", { query: opts });
+  return apiAuction("/profiles/" + encodeURIComponent(name) + "/bids", {
+    query: opts,
+  });
 }

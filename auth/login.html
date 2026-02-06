@@ -1,100 +1,133 @@
 <!-- auth/login.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biddy | Login</title>
-  <meta name="description" content="Login to Biddy." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biddy | Login</title>
+    <meta name="description" content="Login to Biddy." />
 
-  <link rel="stylesheet" href="../css/style.css" />
-  <script src="https://kit.fontawesome.com/195dafed95.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/195dafed95.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body class="bg-light min-h-screen flex flex-col">
-
-  <!-- Header (same style as the rest of the site) -->
-  <header class="bg-light px-4 py-3 flex items-center justify-between md:px-8 border-b-4 border-yellow">
-    <a href="../" class="text-yellow">
-      <img src="../assets/logo/logo.png" alt="Biddy Logo" class="h-8 md:h-10 w-auto">
-    </a>
-
-    <nav class="hidden md:flex space-x-6 text-sm items-center">
-      <a href="../" class="text-navy hover:text-yellow font-medium">Home</a>
-      <a href="../auth/" class="text-navy hover:text-yellow font-medium">
-        <i class="fa-solid fa-user"></i> Register
+  <body class="bg-light min-h-screen flex flex-col">
+    <!-- Header (same style as the rest of the site) -->
+    <header
+      class="bg-light px-4 py-3 flex items-center justify-between md:px-8 border-b-4 border-yellow"
+    >
+      <a href="../" class="text-yellow">
+        <img
+          src="../assets/logo/logo.png"
+          alt="Biddy Logo"
+          class="h-8 md:h-10 w-auto"
+        />
       </a>
-    </nav>
 
-    <details class="md:hidden relative">
-      <summary class="cursor-pointer p-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 list-none">
-        <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </summary>
-      <div class="absolute right-0 mt-2 w-44 bg-gray-900 border border-gray-800 rounded shadow-md py-2 z-10">
-        <a href="../" class="block text-yellow-300 px-4 py-2 hover:bg-gray-800 text-sm">Home</a>
-        <a href="../auth/index.html" class="block text-yellow-300 px-4 py-2 hover:bg-gray-800 text-sm">Signup</a>
-      </div>
-    </details>
-  </header>
+      <nav class="hidden md:flex space-x-6 text-sm items-center">
+        <a href="../" class="text-navy hover:text-yellow font-medium">Home</a>
+        <a href="../auth/" class="text-navy hover:text-yellow font-medium">
+          <i class="fa-solid fa-user"></i> Register
+        </a>
+      </nav>
 
-  <!-- Main -->
- <main class="flex-grow bg-light px-4 py-10">
-  <section class="mx-auto w-full max-w-4xl bg-navy rounded-2xl shadow-lg px-6 py-10 sm:px-12 sm:py-14">
-
-    <div class="max-w-md mx-auto">
-      <h1 class="text-4xl font-bold text-yellow text-center mb-10">Login</h1>
-
-      <form data-login-form class="space-y-6">
-        <div>
-          <label class="block text-yellow text-sm mb-2">E-mail</label>
-          <input
-            name="email"
-            type="email"
-            required
-            placeholder="name@stud.noroff.no"
-            class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400
-                   focus:outline-none focus:ring-2 focus:ring-yellow"
-          />
-        </div>
-
-        <div>
-          <label class="block text-yellow text-sm mb-2">Password</label>
-          <input
-            name="password"
-            type="password"
-            required
-            placeholder="••••••••"
-            class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400
-                   focus:outline-none focus:ring-2 focus:ring-yellow"
-          />
-        </div>
-
-        <button
-          type="submit"
-          class="w-full bg-yellow text-black font-semibold py-3 rounded-full hover:bg-yellow-700 transition"
+      <details class="md:hidden relative">
+        <summary
+          class="cursor-pointer p-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 list-none"
         >
-          Login
-        </button>
+          <svg
+            class="w-6 h-6 text-navy"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </summary>
+        <div
+          class="absolute right-0 mt-2 w-44 bg-gray-900 border border-gray-800 rounded shadow-md py-2 z-10"
+        >
+          <a
+            href="../"
+            class="block text-yellow-300 px-4 py-2 hover:bg-gray-800 text-sm"
+            >Home</a
+          >
+          <a
+            href="../auth/index.html"
+            class="block text-yellow-300 px-4 py-2 hover:bg-gray-800 text-sm"
+            >Signup</a
+          >
+        </div>
+      </details>
+    </header>
 
-        <p data-login-error class="text-red-300 text-sm text-center"></p>
+    <!-- Main -->
+    <main class="flex-grow bg-light px-4 py-10">
+      <section
+        class="mx-auto w-full max-w-4xl bg-navy rounded-2xl shadow-lg px-6 py-10 sm:px-12 sm:py-14"
+      >
+        <div class="max-w-md mx-auto">
+          <h1 class="text-4xl font-bold text-yellow text-center mb-10">
+            Login
+          </h1>
 
-        <p class="text-center text-sm text-gray-300">
-          Don’t have an account?
-          <a href="./index.html" class="text-yellow hover:underline font-semibold">Sign up</a>
-        </p>
-      </form>
-    </div>
+          <form data-login-form class="space-y-6">
+            <div>
+              <label class="block text-yellow text-sm mb-2">E-mail</label>
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="name@stud.noroff.no"
+                class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow"
+              />
+            </div>
 
-  </section>
-</main>
+            <div>
+              <label class="block text-yellow text-sm mb-2">Password</label>
+              <input
+                name="password"
+                type="password"
+                required
+                placeholder="••••••••"
+                class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow"
+              />
+            </div>
 
+            <button
+              type="submit"
+              class="w-full bg-yellow text-black font-semibold py-3 rounded-full hover:bg-yellow-700 transition"
+            >
+              Login
+            </button>
 
-  <footer class="bg-navy p-4 py-6 text-center text-sm text-white">
-    &copy; 2026 Biddy. All rights reserved.
-  </footer>
+            <p data-login-error class="text-red-300 text-sm text-center"></p>
 
-  <script type="module" src="../js/pages/auth-page.js"></script>
-</body>
+            <p class="text-center text-sm text-gray-300">
+              Don’t have an account?
+              <a
+                href="./index.html"
+                class="text-yellow hover:underline font-semibold"
+                >Sign up</a
+              >
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-navy p-4 py-6 text-center text-sm text-white">
+      &copy; 2026 Biddy. All rights reserved.
+    </footer>
+
+    <script type="module" src="../js/pages/auth-page.js"></script>
+  </body>
 </html>

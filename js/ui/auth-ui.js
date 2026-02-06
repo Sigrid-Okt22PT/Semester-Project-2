@@ -22,7 +22,8 @@ export function setupAuthUI() {
   const creditsEl = document.querySelector("[data-nav-credits]");
   if (creditsEl) {
     let credits = 0;
-    if (profile && typeof profile.credits === "number") credits = profile.credits;
+    if (profile && typeof profile.credits === "number")
+      credits = profile.credits;
     creditsEl.textContent = String(credits);
   }
 

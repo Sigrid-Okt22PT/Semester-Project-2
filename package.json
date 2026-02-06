@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx tailwindcss -i ./css/input.css -o ./css/style.css --watch",
-    "build": "npx tailwindcss -i ./css/input.css -o ./css/style.css --minify"
+    "build": "npx tailwindcss -i ./css/input.css -o ./css/style.css --minify",
+    "prepare": "husky",
+    "test": "vitest",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,18 @@
   },
   "homepage": "https://github.com/Sigrid-Okt22PT/Semester-Project-2#readme",
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
     "tailwindcss": "^3.4.19"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.html": [
+      "prettier --write"
+    ]
   }
 }

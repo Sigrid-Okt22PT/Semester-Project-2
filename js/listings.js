@@ -1,4 +1,3 @@
-
 import { apiAuction, requireAuth } from "./script.js";
 
 /**
@@ -16,7 +15,7 @@ export async function listListings(opts = {}) {
 }
 
 /**
- * Search listings 
+ * Search listings
  * GET /auction/listings/search?q=<query>
  *
  * @param {string} q
@@ -30,7 +29,7 @@ export async function searchListings(q, opts = {}) {
 }
 
 /**
- * Get a single listing 
+ * Get a single listing
  * GET /auction/listings/<id>
  *
  * @param {string} id
@@ -69,7 +68,7 @@ export async function getListingWithBids(id) {
 export async function createListing(payload) {
   requireAuth();
 
-  // validation 
+  // validation
   if (!payload) throw new Error("Payload is required");
   if (!payload.title) throw new Error("Title is required");
   if (!payload.endsAt) throw new Error("Deadline (endsAt) is required");

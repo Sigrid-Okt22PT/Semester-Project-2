@@ -4,12 +4,13 @@ setupAuthUI();
 import { logout } from "../script.js";
 import { listListings, searchListings } from "../listings.js";
 
-
 // ---------- DOM ----------
 const listingsGrid = document.querySelector("[data-listings]");
 const feedback = document.querySelector("[data-feedback]");
 const pagination = document.querySelector("[data-pagination]");
-const searchForms = Array.from(document.querySelectorAll("form[data-search-form]"));
+const searchForms = Array.from(
+  document.querySelectorAll("form[data-search-form]"),
+);
 const logoutLinks = document.querySelectorAll("[data-logout]");
 
 // ---------- logout ----------
@@ -23,7 +24,7 @@ logoutLinks.forEach((link) => {
 // ---------- state ----------
 const state = {
   page: 1,
-  limit: 24,
+  limit: 15,
   q: "",
   meta: null,
   loading: false,
@@ -94,8 +95,8 @@ function renderCard(listing) {
     if (!Number.isNaN(d.getTime())) endsText = d.toLocaleString();
   }
 
-  // image
-  let img = "https://placehold.co/640x420?text=Biddy";
+  // image (default if no media or invalid media)
+  let img = "https://placehold.co/400?text=Img";
   let alt = title;
 
   if (
@@ -168,30 +169,34 @@ function renderPagination(meta) {
   pagination.innerHTML = "";
   if (!meta) return;
 
-  const isFirst = meta.page <= 1;
-  const isLast = meta.page >= meta.pageCount;
+  // Noroff v2 uses currentPage / nextPage / previousPage
+  const page = Number(meta.currentPage) || 1;
+  const pageCount = Number(meta.pageCount) || 1;
+
+  const prevPage = meta.previousPage; // can be null
+  const nextPage = meta.nextPage; // can be null
 
   const prev = document.createElement("button");
   prev.textContent = "Prev";
-  prev.disabled = isFirst;
+  prev.disabled = prevPage === null || prevPage === undefined;
   prev.className =
     "px-3 py-2 rounded border border-gray-300 bg-white disabled:opacity-50";
   prev.addEventListener("click", () => {
-    if (!isFirst) load(meta.page - 1);
+    if (prevPage !== null && prevPage !== undefined) load(Number(prevPage));
   });
 
   const next = document.createElement("button");
   next.textContent = "Next";
-  next.disabled = isLast;
+  next.disabled = nextPage === null || nextPage === undefined;
   next.className =
     "px-3 py-2 rounded border border-gray-300 bg-white disabled:opacity-50";
   next.addEventListener("click", () => {
-    if (!isLast) load(meta.page + 1);
+    if (nextPage !== null && nextPage !== undefined) load(Number(nextPage));
   });
 
   const label = document.createElement("span");
   label.className = "text-sm text-gray-700 px-2";
-  label.textContent = "Page " + meta.page + " of " + meta.pageCount;
+  label.textContent = "Page " + page + " of " + pageCount;
 
   pagination.appendChild(prev);
   pagination.appendChild(label);
@@ -200,6 +205,7 @@ function renderPagination(meta) {
 
 // ---------- data fetch ----------
 async function load(page = 1) {
+  page = Number(page) || 1;
   if (!listingsGrid) return;
   if (state.loading) return;
 
@@ -233,12 +239,16 @@ async function load(page = 1) {
 
     state.meta = result.meta || null;
 
+    if (state.meta && state.meta.currentPage) {
+      state.page = Number(state.meta.currentPage) || state.page;
+    }
+
     const listings = Array.isArray(result.data) ? result.data : [];
     renderListings(listings);
     renderPagination(result.meta);
 
     if (state.q && state.q.length > 0) {
-      setFeedback('Showing results for "' + state.q + '"');
+      setFeedback('Search result for "' + state.q + '"');
     } else {
       setFeedback("");
     }

@@ -129,7 +129,12 @@ export async function apiRequest(pathOrUrl, init) {
   if (!res.ok) {
     let msg = res.statusText || "Request failed";
 
-    if (json && json.errors && json.errors.length > 0 && json.errors[0].message) {
+    if (
+      json &&
+      json.errors &&
+      json.errors.length > 0 &&
+      json.errors[0].message
+    ) {
       msg = json.errors[0].message;
     }
 

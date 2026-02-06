@@ -4,8 +4,6 @@ setupAuthUI();
 import { logout, fmtDate, getStoredProfile } from "../script.js";
 import { getListingWithBids, addBid } from "../listings.js";
 
-
-
 // ---------- logout ----------
 const logoutLinks = document.querySelectorAll("[data-logout]");
 logoutLinks.forEach((link) => {
@@ -138,7 +136,7 @@ function renderBids(bids) {
     tr.innerHTML =
       '<td class="p-3 text-navy font-medium">' +
       bidderName +
-      '</td>' +
+      "</td>" +
       '<td class="p-3 text-navy font-bold">' +
       amountText +
       "</td>" +
@@ -151,7 +149,8 @@ function renderBids(bids) {
 
   bidsBody.appendChild(frag);
 
-  if (highestBidEl) highestBidEl.textContent = highest > 0 ? String(highest) : "—";
+  if (highestBidEl)
+    highestBidEl.textContent = highest > 0 ? String(highest) : "—";
   if (bidCountEl) bidCountEl.textContent = String(bids.length);
 }
 
@@ -186,11 +185,13 @@ async function load() {
     const data = result && result.data ? result.data : null;
 
     // title
-    if (titleEl) titleEl.textContent = data && data.title ? data.title : "Untitled";
+    if (titleEl)
+      titleEl.textContent = data && data.title ? data.title : "Untitled";
 
     // seller
     if (sellerEl) {
-      if (data && data.seller && data.seller.name) sellerEl.textContent = data.seller.name;
+      if (data && data.seller && data.seller.name)
+        sellerEl.textContent = data.seller.name;
       else sellerEl.textContent = "—";
     }
 
@@ -201,7 +202,9 @@ async function load() {
     }
 
     // description
-    if (descEl) descEl.textContent = data && data.description ? data.description : "No description.";
+    if (descEl)
+      descEl.textContent =
+        data && data.description ? data.description : "No description.";
 
     // hero image
     let img = "https://placehold.co/960x640?text=Biddy";
