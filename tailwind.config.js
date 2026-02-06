@@ -11,6 +11,9 @@ module.exports = {
         white: "#FFFFFF",
         red: "#FF0000",
       },
+      fontFamily: {
+        sans: ["Jost", "ui-sans-serif", "system-ui"],
+      },
     },
     plugins: [],
   },

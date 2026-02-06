@@ -12,61 +12,174 @@
       src="https://kit.fontawesome.com/195dafed95.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+    />
+
   </head>
 
   <body class="bg-light min-h-screen flex flex-col">
-    <!-- Header (same style as the rest of the site) -->
+    <!-- Header -->
     <header
       class="bg-light px-4 py-3 flex items-center justify-between md:px-8 border-b-4 border-yellow"
     >
-      <a href="../" class="text-yellow">
+      <a href="../" class="text-yellow self-end">
         <img
           src="../assets/logo/logo.png"
           alt="Biddy Logo"
-          class="h-8 md:h-10 w-auto"
+          class="h-16 md:h-16 w-auto -mb-3"
         />
       </a>
 
+      <!-- Desktop search -->
+      <form data-search-form class="hidden md:flex items-center ml-6">
+        <input
+          name="search"
+          type="search"
+          placeholder="Search listings"
+          class="p-2 rounded-2xl focus:outline-none bg-white text-navy"
+        />
+        <button
+          type="submit"
+          class=" px-4 py-2 rounded-r text-navy hover:text-yellow"
+          aria-label="Search"
+        >
+         <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+        </button>
+      </form>
+
+      <!-- Desktop nav -->
       <nav class="hidden md:flex space-x-6 text-sm items-center">
-        <a href="../" class="text-navy hover:text-yellow font-medium">Home</a>
-        <a href="../auth/" class="text-navy hover:text-yellow font-medium">
-          <i class="fa-solid fa-user"></i> Register
+        <a
+          href="../auth/login.html"
+          data-guest-only
+          class="text-navy hover:text-yellow font-medium"
+        >
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+        <a
+          href="../auth/index.html"
+          data-guest-only
+          class="text-navy hover:text-yellow font-medium"
+        >
+          Sign up
+        </a>
+
+        <a
+          href="../profile/"
+          data-user-only
+          class="text-navy hover:text-yellow text-4xl"
+          aria-label="profile"
+          ><i class="fa-solid fa-circle-user"></i></a
+        >
+
+        <a
+          href="../listings/create.html"
+          data-user-only
+          class="bg-yellow text-black px-6 py-3 rounded rounded-2xl hover:bg-navy hover:text-yellow font-medium"
+        >
+          <i class="fa-solid fa-plus"></i> New listing
+        </a>
+       
+
+        <a
+          href="#"
+          data-user-only
+          data-logout
+          class="text-navy hover:text-red font-medium"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
         </a>
       </nav>
 
-      <details class="md:hidden relative">
+      <!-- Mobile menu -->
+        <details class="md:hidden relative">
         <summary
-          class="cursor-pointer p-2 rounded focus:outline-none focus:ring-2 focus:ring-yellow-400 list-none"
+            class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
+            aria-label="Open menu"
         >
-          <svg
-            class="w-6 h-6 text-navy"
+            <svg
+            class="w-7 h-7 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-          >
+            >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
             ></path>
-          </svg>
+            </svg>
         </summary>
+
         <div
-          class="absolute right-0 mt-2 w-44 bg-gray-900 border border-gray-800 rounded shadow-md py-2 z-10"
+            class="absolute right-0 mt-3 w-64 bg-light rounded-2xl shadow-lg
+                p-4 z-20 flex flex-col gap-3"
         >
-          <a
-            href="../"
-            class="block text-yellow-300 px-4 py-2 hover:bg-gray-800 text-sm"
-            >Home</a
-          >
-          <a
+            <!-- Guest links -->
+            <a
+            href="../auth/login.html"
+            data-guest-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
+                    text-navy font-semibold text-base
+                    hover:bg-yellow hover:text-black transition"
+            >
+            <i class="fa-solid fa-user text-lg"></i>
+            Login
+            </a>
+
+            <a
             href="../auth/index.html"
-            class="block text-yellow-300 px-4 py-2 hover:bg-gray-800 text-sm"
-            >Signup</a
-          >
+            data-guest-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
+                    text-navy font-semibold text-base
+                    hover:bg-yellow hover:text-black transition"
+            >
+            <i class="fa-solid fa-user-plus text-lg"></i>
+            Sign up
+            </a>
+
+            <!-- User links -->
+            <a
+            href="./profile/"
+            data-user-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
+                    text-navy font-semibold text-base
+                    hover:bg-yellow hover:text-black transition"
+            >
+            <i class="fa-solid fa-circle-user text-lg"></i>
+            Profile
+            </a>
+
+            <a
+            href="../listings/create.html"
+            data-user-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl
+                    bg-yellow text-black font-semibold text-base
+                    hover:bg-navy hover:text-yellow transition"
+            >
+            <i class="fa-solid fa-plus text-lg"></i>
+            New listing
+            </a>
+
+            <a
+            href="#"
+            data-user-only
+            data-logout
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
+                    text-red-600 font-semibold text-base
+                    hover:bg-red-100 transition"
+            >
+            <i class="fa-solid fa-right-from-bracket text-lg"></i>
+            Logout
+            </a>
         </div>
-      </details>
+        </details>
+
     </header>
 
     <!-- Main -->
@@ -109,7 +222,7 @@
               Login
             </button>
 
-            <p data-login-error class="text-red-300 text-sm text-center"></p>
+            <p data-login-error class="text-red text-sm text-center"></p>
 
             <p class="text-center text-sm text-gray-300">
               Don’t have an account?

@@ -1,7 +1,7 @@
 import { apiAuction, requireAuth } from "./script.js";
 
 /**
- * List all listings (public).
+ * List all listings
  * GET /auction/listings
  * Supports: page, limit, sort, sortOrder, _seller, _bids, _tag, _active
  *

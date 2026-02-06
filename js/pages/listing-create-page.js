@@ -31,8 +31,8 @@ function setSuccess(msg) {
 
 // ---------- date helper ----------
 function toISOFromDatetimeLocal(value) {
-  // datetime-local has no timezone, so we treat it as local time
-  // and convert it into an ISO string
+  // datetime-local input returns in format "YYYY-MM-DDTHH:mm", 
+// which is close to ISO but missing seconds and timezone.
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "";
   return d.toISOString();
@@ -47,7 +47,7 @@ if (form) {
 
     const fd = new FormData(form);
 
-    // read values safely
+    // required fields
     const title = String(fd.get("title") || "").trim();
     const endsAtLocal = String(fd.get("endsAt") || "").trim();
     const description = String(fd.get("description") || "").trim();
@@ -57,20 +57,20 @@ if (form) {
       return;
     }
 
-    // convert endsAt to ISO
+    // convert endsAt to ISO string
     const endsAt = toISOFromDatetimeLocal(endsAtLocal);
     if (!endsAt) {
       setError("Please choose a valid deadline date/time.");
       return;
     }
 
-    // deadline must be in the future
+    // check that endsAt is in the future
     if (new Date(endsAt).getTime() <= Date.now()) {
       setError("Deadline must be in the future.");
       return;
     }
 
-    // build media array (optional)
+    // media 
     const media = [];
     const mediaKeys = ["media1", "media2", "media3", "media4"];
 
@@ -98,7 +98,7 @@ if (form) {
     try {
       const result = await createListing(payload);
 
-      // result should contain { data }
+      // sanity check for result and id
       if (!result || !result.data || !result.data.id) {
         setError("Listing created, but could not find listing id.");
         return;

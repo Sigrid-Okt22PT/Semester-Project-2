@@ -61,6 +61,7 @@ function getHighestBid(listing) {
   return highest;
 }
 
+
 // ---------- render ----------
 function renderListings(listings) {
   if (!listingsGrid) return;
@@ -128,24 +129,23 @@ function renderCard(listing) {
   // highest bid amount
   const highestBid = getHighestBid(listing);
 
+
   const card = document.createElement("article");
   card.className =
-    "bg-white rounded-2xl border border-4 border-yellow overflow-hidden shadow-sm hover:shadow transition";
+  "bg-white rounded-2xl border border-yellow overflow-hidden shadow-sm hover:shadow transition flex flex-col";
 
   card.innerHTML = `
     <img src="${img}" alt="${alt}" class="h-44 w-full max-w-44 mx-auto object-cover mt-4 rounded-lg">
-    <div class="p-4 space-y-2">
-      <h3 class="font-bold text-navy line-clamp-1">${title}</h3>
-      <p class="text-sm text-gray-600 line-clamp-2">${description}</p>
+    <div class="p-4 space-y-2 flex-grow">
+      <h3 class="text-xl text-navy line-clamp-1">${title}</h3>
 
       <div class="flex items-center justify-between  pt-2">
-        <span class="text-navy text-xl font-semibold">
-         <i class="fa-solid fa-dollar-sign text-yellow"></i>
+        <span class="text-navy text-2xl">
+        <i class="fa-solid fa-dollar-sign text-yellow"></i>
           ${highestBid > 0 ? highestBid : "No bids"}
         </span>
 
-        <span class="text-navy text-xs font-semibold">
-          <i class="fa-regular fa-clock text-yellow"></i>
+        <span class="text-navy text-xs">
           ${endsText}
         </span>
       </div>
@@ -153,10 +153,14 @@ function renderCard(listing) {
       
     </div>
     
-      <a class="inline-block font-semibold text-yellow hover:underline bg-navy border border-4 border-yellow rounded-2xl p-4 text-center text-xl w-full"
-         href="./listings/details.html?id=${encodeURIComponent(id)}">
-        View bid
-      </a>
+     <a
+      class="mt-auto block text-yellow bg-navy border border-4 border-yellow
+            rounded-2xl p-4 text-center text-xl hover:bg-yellow hover:text-navy"
+            href="./listings/details.html?id=${encodeURIComponent(id)}"
+    >
+      View bid
+    </a>
+
       
   `;
 
@@ -180,7 +184,7 @@ function renderPagination(meta) {
   prev.textContent = "Prev";
   prev.disabled = prevPage === null || prevPage === undefined;
   prev.className =
-    "px-3 py-2 rounded border border-gray-300 bg-white disabled:opacity-50";
+    "px-3 py-2 rounded rounded-2xl border bg-yellow text-white disabled:opacity-50 hover:bg-navy";
   prev.addEventListener("click", () => {
     if (prevPage !== null && prevPage !== undefined) load(Number(prevPage));
   });
@@ -189,7 +193,7 @@ function renderPagination(meta) {
   next.textContent = "Next";
   next.disabled = nextPage === null || nextPage === undefined;
   next.className =
-    "px-3 py-2 rounded border border-gray-300 bg-white disabled:opacity-50";
+    "px-3 py-2 rounded rounded-2xl border bg-yellow text-white disabled:opacity-50 hover:bg-navy";
   next.addEventListener("click", () => {
     if (nextPage !== null && nextPage !== undefined) load(Number(nextPage));
   });
@@ -276,3 +280,4 @@ searchForms.forEach((form) => {
 
 // ---------- init ----------
 load(1);
+
