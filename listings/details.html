@@ -62,7 +62,7 @@
         <a
           href="../listings/create.html"
           data-user-only
-          class="bg-yellow text-black px-6 py-3 rounded rounded-2xl hover:bg-navy hover:text-yellow font-medium"
+          class="bg-yellow text-black px-6 py-3 rounded rounded-full hover:bg-navy hover:text-yellow font-medium"
         >
           <i class="fa-solid fa-plus"></i> New listing
         </a>
@@ -225,10 +225,12 @@
                   placeholder="Bid amount"
                   class="flex-1 p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                   required
+                  aria-label="Bid amount input"
                 />
                 <button
                   type="submit"
                   class="bg-yellow text-black font-semibold px-4 py-2 rounded hover:bg-yellow-700"
+                  aria-label="Submit bid"
                 >
                   <i class="fa-solid fa-gavel"></i> Bid
                 </button>

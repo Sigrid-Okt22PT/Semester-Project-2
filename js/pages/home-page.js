@@ -130,7 +130,7 @@ function renderCard(listing) {
 
   const card = document.createElement("article");
   card.className =
-    "bg-white rounded-2xl border border-yellow overflow-hidden shadow-sm hover:shadow transition flex flex-col";
+    "bg-white rounded-2xl border  overflow-hidden shadow-sm hover:shadow transition flex flex-col";
 
   card.innerHTML = `
     <img src="${img}" alt="${alt}" class="h-44 w-full max-w-44 mx-auto object-cover mt-4 rounded-lg">
@@ -152,9 +152,10 @@ function renderCard(listing) {
     </div>
     
      <a
-      class="mt-auto block text-yellow bg-navy border border-4 border-yellow
-            rounded-2xl p-4 text-center text-xl hover:bg-yellow hover:text-navy"
-            href="./listings/details.html?id=${encodeURIComponent(id)}"
+       class="mt-auto block w-full text-yellow bg-navy
+         rounded-b-2xl p-4 text-center text-xl
+         hover:bg-yellow hover:text-navy transition"
+        href="./listings/details.html?id=${encodeURIComponent(id)}"
     >
       View bid
     </a>

@@ -44,6 +44,25 @@ function setSuccess(msg) {
   if (okEl) okEl.textContent = msg || "";
   if (errEl) errEl.textContent = "";
 }
+function getHighestBid(listing) {
+  let highest = 0;
+
+  if (!listing || !listing.bids || !Array.isArray(listing.bids)) {
+    return highest;
+  }
+
+  for (let i = 0; i < listing.bids.length; i++) {
+    const bid = listing.bids[i];
+    const amount = bid && bid.amount ? Number(bid.amount) : 0;
+
+    if (amount > highest) {
+      highest = amount;
+    }
+  }
+
+  return highest;
+}
+
 
 // ---------- render card ----------
 function renderMyListingCard(listing) {
@@ -85,36 +104,58 @@ function renderMyListingCard(listing) {
   // title
   let title = "Untitled";
   if (listing && listing.title) title = listing.title;
+  // title
+  let details = "Untitled";
+  if (listing && listing.description) details = listing.description;
 
   // id
   let id = "";
   if (listing && listing.id) id = listing.id;
 
-  const article = document.createElement("article");
-  article.className =
-    "bg-light border border-gray-200 rounded-lg overflow-hidden";
+    // highest bid
+  const highestBid = getHighestBid(listing);
 
-  article.innerHTML =
-    '<img src="' +
-    img +
-    '" alt="' +
-    alt +
-    '" class="h-28 w-full object-cover">' +
-    '<div class="p-3">' +
-    '<p class="font-semibold text-navy line-clamp-1">' +
-    title +
+
+const article = document.createElement("article");
+article.className =
+  "bg-white rounded-2xl border border-yellow overflow-hidden "
+
+article.innerHTML =
+  '<img src="' +
+  img +
+  '" alt="' +
+  alt +
+  '" class="h-44 mx-auto object-cover mt-4 rounded-2xl">' +
+
+  '<div class="p-4 space-y-2 flex-grow">' +
+    '<h3 class="text-xl text-navy">' +
+      title +
+    "</h3>" +
+    '<p class="text-gray-300">' +
+      details +
     "</p>" +
-    '<p class="text-xs text-gray-600 mt-1"><i class="fa-regular fa-clock"></i> ' +
-    endsText +
-    "</p>" +
-    '<a class="inline-block mt-2 text-xs font-semibold text-yellow hover:underline" href="../listings/details.html?id=' +
+
+    '<div class="flex items-center justify-between pt-2">' +
+      '<span class="text-navy text-2xl">' +
+        (highestBid > 0 ? highestBid : "No bids") +
+      "</span>" +
+
+      '<span class="text-navy">' +
+        endsText +
+      "</span>" +
+    "</div>" +
+  "</div>" +
+
+  '<a class="mt-auto block text-yellow ' +
+  'p-4 text-center text-xl hover:text-navy" ' +
+  'href="../listings/details.html?id=' +
     encodeURIComponent(id) +
-    '">' +
-    "View →" +
-    "</a>" +
-    "</div>";
+  '">' +
+    "Go to bid details" +
+  "</a>";
 
-  return article;
+return article;
+
 }
 
 // ---------- init ----------
