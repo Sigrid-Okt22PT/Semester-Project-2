@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biddy | Profile</title>
+    <meta name="description" content="Your Biddy profile." />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/195dafed95.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-light min-h-screen flex flex-col">
+    <!-- Header -->
+    <header
+      class="bg-light px-4 py-3 flex items-center justify-between md:px-8 border-b-4 border-yellow"
+    >
+      <a href="../" class="text-yellow self-end">
+        <img
+          src="../assets/logo/logo.png"
+          alt="Biddy Logo"
+          class="h-16 md:h-16 w-auto -mb-3"
+        />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex space-x-6 text-sm items-center">
+        <a
+          href="../auth/login.html"
+          data-guest-only
+          class="text-navy hover:text-yellow text-xl -mb-3"
+        >
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+        <a
+          href="../auth/index.html"
+          data-guest-only
+          class="text-navy hover:text-yellow text-xl -mb-3"
+        >
+          <i class="fa-solid fa-user-plus text-lg"></i>
+          Sign up
+        </a>
+
+        <a
+          href="../profile/"
+          data-user-only
+          class="text-navy hover:text-yellow text-4xl"
+          aria-label="profile"
+          ><i class="fa-solid fa-circle-user"></i
+        ></a>
+
+        <a
+          href="../listings/create.html"
+          data-user-only
+          class="bg-yellow text-black px-6 py-3 rounded rounded-full hover:bg-navy hover:text-yellow font-medium"
+        >
+          <i class="fa-solid fa-plus"></i> New listing
+        </a>
+
+        <a
+          href="#"
+          data-user-only
+          data-logout
+          class="text-navy hover:text-red font-medium"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </nav>
+
+      <!-- Mobile menu -->
+      <details class="md:hidden relative">
+        <summary
+          class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
+          aria-label="Open menu"
+        >
+          <svg
+            class="w-7 h-7 text-navy"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </summary>
+
+        <div
+          class="absolute right-0 mt-3 w-64 bg-light rounded-2xl shadow-lg p-4 z-20 flex flex-col gap-3"
+        >
+          <!-- Guest links -->
+          <a
+            href="../auth/login.html"
+            data-guest-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
+            <i class="fa-solid fa-user text-lg"></i>
+            Login
+          </a>
+
+          <a
+            href="../auth/index.html"
+            data-guest-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
+            <i class="fa-solid fa-user-plus text-lg"></i>
+            Sign up
+          </a>
+
+          <!-- User links -->
+          <a
+            href="../profile/"
+            data-user-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
+            <i class="fa-solid fa-circle-user text-lg"></i>
+            Profile
+          </a>
+
+          <a
+            href="../listings/create.html"
+            data-user-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
+          >
+            <i class="fa-solid fa-plus text-lg"></i>
+            New listing
+          </a>
+
+          <a
+            href="#"
+            data-user-only
+            data-logout
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
+          >
+            <i class="fa-solid fa-right-from-bracket text-lg"></i>
+            Logout
+          </a>
+        </div>
+      </details>
+    </header>
+    <!-- Main -->
+    <main class="flex-grow container mx-auto px-4 py-6 md:px-8">
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <h1 class="text-2xl font-bold text-navy mb-1">Profile</h1>
+          <p class="text-gray-700">Manage your avatar and see your credits.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl px-6 py-4 flex flex-col items-center">
+          <p class="text-sm text-gray-600">Credits</p>
+          <p class="text-2xl font-bold text-navy flex items-center gap-2">
+            <span data-credits>—</span>
+          </p>
+        </div>
+      </div>
+
+      <section class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Profile Card -->
+        <div class="bg-white rounded-2xl p-5 md:col-span-1">
+          <div class="flex items-center gap-4">
+            <img
+              data-avatar
+              src="https://placehold.co/96x96"
+              alt="Avatar"
+              class="h-20 w-20 rounded-2xl object-cover "
+            />
+            <div>
+              <p class="text-lg font-bold text-navy" data-name>—</p>
+              <p class="text-sm text-gray-600" data-email>—</p>
+            </div>
+          </div>
+
+          <hr class="my-5" />
+
+          <h2 class="text-navy mb-2">Update avatar</h2>
+
+          <form data-avatar-form class="space-y-3">
+            <div>
+              <label class="text-sm text-gray-700">Avatar URL</label>
+              <input
+                name="url"
+                type="url"
+                placeholder="https://url-to-avatar.com/avatar.jpg"
+                class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                required
+              />
+            </div>
+
+            <div>
+              <label class="text-sm text-gray-700">Alt text</label>
+              <input
+                name="alt"
+                type="text"
+                placeholder="Profile picture"
+                class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-yellow text-navynt-semibold py-2 rounded-2xl hover:bg-navy hover:text-yellow transition"
+              aria-label="Save avatar"
+            >
+              Save avatar
+            </button>
+
+            <p class="text-sm text-red" data-error></p>
+            <p class="text-sm text-green" data-success></p>
+          </form>
+        </div>
+
+        <!-- Your activity -->
+        <div class="bg-white rounded-2xl p-5 md:col-span-2">
+          <h2 class="text-lg font-bold text-navy mt-4 mb-4">Your listings</h2>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+            data-my-listings
+          >
+            <!-- cards injected -->
+          </div>
+
+          <p class="mt-4 text-gray-600 text-sm" data-my-listings-feedback></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-navy p-4 py-6 text-center text-sm text-white">
+      &copy; 2026 Biddy. All rights reserved.
+    </footer>
+
+    <!-- Page script -->
+    <script type="module" src="../js/pages/profile-page.js"></script>
+  </body>
+</html>

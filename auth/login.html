@@ -1,0 +1,215 @@
+<!-- auth/login.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biddy | Login</title>
+    <meta name="description" content="Login to Biddy." />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/195dafed95.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-light min-h-screen flex flex-col">
+    <!-- Header -->
+    <header
+      class="bg-light px-4 py-3 flex items-center justify-between md:px-8 border-b-4 border-yellow"
+    >
+      <a href="../" class="text-yellow self-end">
+        <img
+          src="../assets/logo/logo.png"
+          alt="Biddy Logo"
+          class="h-16 md:h-16 w-auto -mb-3"
+        />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex space-x-6 text-sm items-center">
+        <a
+          href="../auth/login.html"
+          data-guest-only
+          class="text-navy hover:text-yellow text-xl -mb-3"
+        >
+          <i class="fa-solid fa-user"></i> Login
+        </a>
+        <a
+          href="../auth/index.html"
+          data-guest-only
+          class="text-navy hover:text-yellow text-xl -mb-3"
+        >
+          <i class="fa-solid fa-user-plus text-lg"></i>
+          Sign up
+        </a>
+
+        <a
+          href="../profile/"
+          data-user-only
+          class="text-navy hover:text-yellow text-4xl"
+          aria-label="profile"
+          ><i class="fa-solid fa-circle-user"></i
+        ></a>
+
+        <a
+          href="../listings/create.html"
+          data-user-only
+          class="bg-yellow text-black px-6 py-3 rounded rounded-full hover:bg-navy hover:text-yellow font-medium"
+        >
+          <i class="fa-solid fa-plus"></i> New listing
+        </a>
+
+        <a
+          href="#"
+          data-user-only
+          data-logout
+          class="text-navy hover:text-red font-medium"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </nav>
+
+      <!-- Mobile menu -->
+      <details class="md:hidden relative">
+        <summary
+          class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
+          aria-label="Open menu"
+        >
+          <svg
+            class="w-7 h-7 text-navy"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </summary>
+
+        <div
+          class="absolute right-0 mt-3 w-64 bg-light rounded-2xl shadow-lg p-4 z-20 flex flex-col gap-3"
+        >
+          <!-- Guest links -->
+          <a
+            href="../auth/login.html"
+            data-guest-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
+            <i class="fa-solid fa-user text-lg"></i>
+            Login
+          </a>
+
+          <a
+            href="../auth/index.html"
+            data-guest-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
+            <i class="fa-solid fa-user-plus text-lg"></i>
+            Sign up
+          </a>
+
+          <!-- User links -->
+          <a
+            href="../profile/"
+            data-user-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
+            <i class="fa-solid fa-circle-user text-lg"></i>
+            Profile
+          </a>
+
+          <a
+            href="../listings/create.html"
+            data-user-only
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
+          >
+            <i class="fa-solid fa-plus text-lg"></i>
+            New listing
+          </a>
+
+          <a
+            href="#"
+            data-user-only
+            data-logout
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
+          >
+            <i class="fa-solid fa-right-from-bracket text-lg"></i>
+            Logout
+          </a>
+        </div>
+      </details>
+    </header>
+    <!-- Main -->
+    <main class="flex-grow bg-light px-4 py-10">
+      <section
+        class="mx-auto w-full max-w-4xl bg-navy rounded-2xl shadow-lg px-6 py-10 sm:px-12 sm:py-14"
+      >
+        <div class="max-w-md mx-auto">
+          <h1 class="text-4xl font-bold text-yellow text-center mb-10">
+            Login
+          </h1>
+
+          <form data-login-form class="space-y-6">
+            <div>
+              <label class="block text-yellow text-sm mb-2">E-mail</label>
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="name@stud.noroff.no"
+                class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow"
+              />
+            </div>
+
+            <div>
+              <label class="block text-yellow text-sm mb-2">Password</label>
+              <input
+                name="password"
+                type="password"
+                required
+                placeholder="••••••••"
+                class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-yellow text-black font-semibold py-3 rounded-full hover:bg-yellow-700 transition"
+            >
+              Login
+            </button>
+
+            <p data-login-error class="text-red text-sm text-center"></p>
+
+            <p class="text-center text-sm text-gray-300">
+              Don’t have an account?
+              <a
+                href="./index.html"
+                class="text-yellow hover:underline font-semibold"
+                >Sign up</a
+              >
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-navy p-4 py-6 text-center text-sm text-white">
+      &copy; 2026 Biddy. All rights reserved.
+    </footer>
+
+    <script type="module" src="../js/pages/auth-page.js"></script>
+  </body>
+</html>
