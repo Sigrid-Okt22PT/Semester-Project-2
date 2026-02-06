@@ -188,8 +188,9 @@
 
           <form data-avatar-form class="space-y-3">
             <div>
-              <label class="text-sm text-gray-700">Avatar URL</label>
+              <label for="avatar-url" class="text-sm text-gray-700">Avatar URL</label>
               <input
+                id="avatar-url"
                 name="url"
                 type="url"
                 placeholder="https://url-to-avatar.com/avatar.jpg"
@@ -199,8 +200,9 @@
             </div>
 
             <div>
-              <label class="text-sm text-gray-700">Alt text</label>
+              <label for="avatar-alt" class="text-sm text-gray-700">Alt text</label>
               <input
+                id="avatar-alt"
                 name="alt"
                 type="text"
                 placeholder="Profile picture"
@@ -210,7 +212,7 @@
 
             <button
               type="submit"
-              class="w-full bg-yellow text-navynt-semibold py-2 rounded-2xl hover:bg-navy hover:text-yellow transition"
+              class="w-full bg-yellow text-navy py-2 rounded-2xl hover:bg-navy hover:text-yellow transition"
               aria-label="Save avatar"
             >
               Save avatar
@@ -223,7 +225,7 @@
 
         <!-- Your activity -->
         <div class="bg-white rounded-2xl p-5 md:col-span-2">
-          <h2 class="text-lg font-bold text-navy mt-4 mb-4">Your listings</h2>
+          <h2 class="text-lg text-navy mt-4 mb-4">Your listings</h2>
           <div
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
             data-my-listings

@@ -10,6 +10,7 @@ module.exports = {
         light: "#E5E5E5",
         white: "#FFFFFF",
         red: "#FF0000",
+        green: "#00FF00",
       },
       fontFamily: {
         sans: ["Jost", "ui-sans-serif", "system-ui"],

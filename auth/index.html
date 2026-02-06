@@ -154,17 +154,18 @@
     <!-- Main -->
     <main class="flex-grow bg-light px-4 py-10">
       <section
-        class="mx-auto w-full max-w-4xl bg-navy rounded-2xl shadow-lg px-6 py-10 sm:px-12 sm:py-14"
+        class="mx-auto w-full max-w-4xl bg-navy rounded-2xl px-6 py-10 sm:px-12 sm:py-14"
       >
         <div class="max-w-md mx-auto">
-          <h1 class="text-2xl font-bold text-yellow text-center mb-6">
+          <h1 class="text-4xl text-yellow text-center mb-6">
             Sign up
           </h1>
 
           <form data-register-form class="space-y-4">
             <div>
-              <label class="block text-yellow text-sm mb-1">E-mail</label>
+              <label for="email" class="block text-yellow text-sm mb-1">E-mail</label>
               <input
+                id="email"
                 name="email"
                 type="email"
                 required
@@ -173,8 +174,9 @@
             </div>
 
             <div>
-              <label class="block text-yellow text-sm mb-1">First name</label>
+              <label for="name" class="block text-yellow text-sm mb-1">First name</label>
               <input
+                id="name"
                 name="name"
                 type="text"
                 required
@@ -183,8 +185,9 @@
             </div>
 
             <div>
-              <label class="block text-yellow text-sm mb-1">Password</label>
+              <label for="password" class="block text-yellow text-sm mb-1">Password</label>
               <input
+                id="password"
                 name="password"
                 type="password"
                 required
@@ -194,7 +197,7 @@
 
             <button
               type="submit"
-              class="w-full mt-6 bg-yellow text-black font-semibold py-3 rounded-full hover:bg-yellow-700 transition"
+              class="w-full mt-6 bg-yellow text-black py-3 rounded-full hover:bg-navy hover:text-yellow transition"
             >
               Sign up
             </button>
@@ -207,7 +210,7 @@
               Already have an account?
               <a
                 href="./login.html"
-                class="text-yellow hover:underline font-semibold"
+                class="text-yellow hover:underline"
               >
                 Sign in
               </a>
