@@ -157,30 +157,32 @@
         class="mx-auto w-full max-w-4xl bg-navy rounded-2xl shadow-lg px-6 py-10 sm:px-12 sm:py-14"
       >
         <div class="max-w-md mx-auto">
-          <h1 class="text-4xl font-bold text-yellow text-center mb-10">
+          <h1 class="text-4xl text-yellow text-center mb-10">
             Login
           </h1>
 
           <form data-login-form class="space-y-6">
             <div>
-              <label class="block text-yellow text-sm mb-2">E-mail</label>
+              <label for="email" class="block text-yellow text-sm mb-2">E-mail</label>
               <input
                 name="email"
                 type="email"
                 required
                 placeholder="name@stud.noroff.no"
                 class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow"
+                aria-label="E-mail input"
               />
             </div>
 
             <div>
-              <label class="block text-yellow text-sm mb-2">Password</label>
+              <label for="password" class="block text-yellow text-sm mb-2">Password</label>
               <input
                 name="password"
                 type="password"
                 required
                 placeholder="••••••••"
                 class="w-full px-5 py-3 rounded-full bg-white text-navy placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow"
+                aria-label="Password input"
               />
             </div>
 
