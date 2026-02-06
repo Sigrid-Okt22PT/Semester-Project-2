@@ -1,3 +1,6 @@
+import { setupAuthUI } from "../ui/auth-ui.js";
+setupAuthUI();
+
 import { login, register } from "../script.js";
 
 const loginForm = document.querySelector("[data-login-form]");

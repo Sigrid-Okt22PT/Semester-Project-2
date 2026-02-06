@@ -1,4 +1,6 @@
-// js/pages/profile-page.js
+import { setupAuthUI } from "../ui/auth-ui.js";
+setupAuthUI();
+
 import { logout, requireAuth, getStoredProfile } from "../script.js";
 import {
   getProfile,

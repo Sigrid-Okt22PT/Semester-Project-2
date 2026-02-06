@@ -1,3 +1,6 @@
+import { setupAuthUI } from "../ui/auth-ui.js";
+setupAuthUI();
+
 import { logout, requireAuth } from "../script.js";
 import { createListing } from "../listings.js";
 
@@ -31,8 +34,8 @@ function setSuccess(msg) {
 
 // ---------- date helper ----------
 function toISOFromDatetimeLocal(value) {
-  // datetime-local input returns in format "YYYY-MM-DDTHH:mm", 
-// which is close to ISO but missing seconds and timezone.
+  // datetime-local input returns in format "YYYY-MM-DDTHH:mm",
+  // which is close to ISO but missing seconds and timezone.
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "";
   return d.toISOString();
@@ -70,7 +73,7 @@ if (form) {
       return;
     }
 
-    // media 
+    // media
     const media = [];
     const mediaKeys = ["media1", "media2", "media3", "media4"];
 

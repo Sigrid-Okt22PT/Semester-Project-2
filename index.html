@@ -14,10 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
-
   </head>
 
   <body class="bg-light min-h-screen flex flex-col">
@@ -33,37 +32,21 @@
         />
       </a>
 
-      <!-- Desktop search -->
-      <form data-search-form class="hidden md:flex items-center ml-6">
-        <input
-          name="search"
-          type="search"
-          placeholder="Search listings"
-          class="p-2 rounded-2xl focus:outline-none bg-white text-navy"
-        />
-        <button
-          type="submit"
-          class=" px-4 py-2 rounded-r text-navy hover:text-yellow"
-          aria-label="Search"
-        >
-         <i class="fa-solid fa-magnifying-glass text-2xl"></i>
-        </button>
-      </form>
-
       <!-- Desktop nav -->
       <nav class="hidden md:flex space-x-6 text-sm items-center">
         <a
           href="./auth/login.html"
           data-guest-only
-          class="text-navy hover:text-yellow font-medium"
+          class="text-navy hover:text-yellow text-xl -mb-3"
         >
           <i class="fa-solid fa-user"></i> Login
         </a>
         <a
           href="/auth/index.html"
           data-guest-only
-          class="text-navy hover:text-yellow font-medium"
+          class="text-navy hover:text-yellow text-xl -mb-3"
         >
+          <i class="fa-solid fa-user-plus text-lg"></i>
           Sign up
         </a>
 
@@ -72,8 +55,8 @@
           data-user-only
           class="text-navy hover:text-yellow text-4xl"
           aria-label="profile"
-          ><i class="fa-solid fa-circle-user"></i></a
-        >
+          ><i class="fa-solid fa-circle-user"></i
+        ></a>
 
         <a
           href="./listings/create.html"
@@ -82,7 +65,6 @@
         >
           <i class="fa-solid fa-plus"></i> New listing
         </a>
-       
 
         <a
           href="#"
@@ -95,91 +77,78 @@
       </nav>
 
       <!-- Mobile menu -->
-      <!-- Mobile menu -->
-        <details class="md:hidden relative">
+      <details class="md:hidden relative">
         <summary
-            class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
-            aria-label="Open menu"
+          class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
+          aria-label="Open menu"
         >
-            <svg
+          <svg
             class="w-7 h-7 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            >
+          >
             <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
             ></path>
-            </svg>
+          </svg>
         </summary>
 
         <div
-            class="absolute right-0 mt-3 w-64 bg-light rounded-2xl shadow-lg
-                p-4 z-20 flex flex-col gap-3"
+          class="absolute right-0 mt-3 w-64 bg-light rounded-2xl shadow-lg p-4 z-20 flex flex-col gap-3"
         >
-            <!-- Guest links -->
-            <a
+          <!-- Guest links -->
+          <a
             href="./auth/login.html"
             data-guest-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
-                    text-navy font-semibold text-base
-                    hover:bg-yellow hover:text-black transition"
-            >
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
             <i class="fa-solid fa-user text-lg"></i>
             Login
-            </a>
+          </a>
 
-            <a
+          <a
             href="./auth/index.html"
             data-guest-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
-                    text-navy font-semibold text-base
-                    hover:bg-yellow hover:text-black transition"
-            >
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
             <i class="fa-solid fa-user-plus text-lg"></i>
             Sign up
-            </a>
+          </a>
 
-            <!-- User links -->
-            <a
+          <!-- User links -->
+          <a
             href="./profile/"
             data-user-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
-                    text-navy font-semibold text-base
-                    hover:bg-yellow hover:text-black transition"
-            >
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+          >
             <i class="fa-solid fa-circle-user text-lg"></i>
             Profile
-            </a>
+          </a>
 
-            <a
+          <a
             href="./listings/create.html"
             data-user-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl
-                    bg-yellow text-black font-semibold text-base
-                    hover:bg-navy hover:text-yellow transition"
-            >
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
+          >
             <i class="fa-solid fa-plus text-lg"></i>
             New listing
-            </a>
+          </a>
 
-            <a
+          <a
             href="#"
             data-user-only
             data-logout
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white
-                    text-red-600 font-semibold text-base
-                    hover:bg-red-100 transition"
-            >
+            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
+          >
             <i class="fa-solid fa-right-from-bracket text-lg"></i>
             Logout
-            </a>
+          </a>
         </div>
-        </details>
-
+      </details>
     </header>
 
     <!-- MAIN  Grid for auction listings -->
@@ -190,6 +159,27 @@
           <p class="text-gray-700">Browse active auctions and place bids.</p>
         </div>
       </div>
+
+      <!-- Desktop search -->
+      <form
+        data-search-form
+        class="hidden md:flex mx-auto mt-8 w-full max-w-4xl items-center gap-2"
+      >
+        <input
+          name="search"
+          type="search"
+          placeholder="Search listings"
+          class="flex-grow p-4 rounded-full text-lg focus:outline-none bg-white text-navy focus:ring-2 focus:ring-yellow"
+        />
+
+        <button
+          type="submit"
+          class="flex items-center justify-center text-navy px-6 py-4 rounded-2xl hover:text-yellow transition"
+          aria-label="Search"
+        >
+          <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+        </button>
+      </form>
 
       <!-- Mobile search -->
       <form data-search-form class="mt-4 md:hidden flex items-center">
@@ -204,7 +194,7 @@
           class="bg-yellow px-4 py-2 rounded-r hover:bg-yellow-700"
           aria-label="Search"
         >
-           <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+          <i class="fa-solid fa-magnifying-glass text-2xl"></i>
         </button>
       </form>
 

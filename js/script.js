@@ -1,4 +1,3 @@
-// js/script.js
 const API_ROOT = "https://v2.api.noroff.dev";
 const API_KEY = "f46433fb-6c5d-42f9-aa02-0751b52aa6fb";
 
