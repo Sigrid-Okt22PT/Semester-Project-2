@@ -25,6 +25,9 @@
   },
   "homepage": "https://github.com/Sigrid-Okt22PT/Semester-Project-2#readme",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",

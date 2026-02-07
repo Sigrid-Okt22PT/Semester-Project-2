@@ -210,7 +210,7 @@ async function init() {
   try {
     const credits = await getCredits(name);
     if (elCredits) elCredits.textContent = String(credits);
-  } catch (e) {
+  } catch {
     // not fatal, just show 0 if it fails
     if (elCredits) elCredits.textContent = "0";
   }

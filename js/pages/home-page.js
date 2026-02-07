@@ -84,10 +84,6 @@ function renderCard(listing) {
   let title = "Untitled";
   if (listing && listing.title) title = listing.title;
 
-  // description
-  let description = "No description.";
-  if (listing && listing.description) description = listing.description;
-
   // endsAt
   let endsText = "—";
   if (listing && listing.endsAt) {
