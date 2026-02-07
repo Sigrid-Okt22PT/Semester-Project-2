@@ -26,7 +26,10 @@
   "homepage": "https://github.com/Sigrid-Okt22PT/Semester-Project-2#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.1",
     "@vitest/browser": "^4.0.18",
+    "dotenv": "^17.2.4",
     "eslint": "^10.0.0",
     "globals": "^17.3.0",
     "husky": "^9.1.7",

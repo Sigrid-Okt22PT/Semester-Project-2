@@ -1,4 +1,3 @@
-// js/profiles.js
 import {
   apiAuction,
   requireAuth,
