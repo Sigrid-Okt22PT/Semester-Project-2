@@ -2,6 +2,7 @@ import { setupAuthUI } from "../ui/auth-ui.js";
 setupAuthUI();
 
 import { logout, requireAuth, getStoredProfile } from "../script.js";
+import { getHighestBid } from "../utils/bids.js";
 import {
   getProfile,
   getCredits,
@@ -44,25 +45,6 @@ function setSuccess(msg) {
   if (okEl) okEl.textContent = msg || "";
   if (errEl) errEl.textContent = "";
 }
-function getHighestBid(listing) {
-  let highest = 0;
-
-  if (!listing || !listing.bids || !Array.isArray(listing.bids)) {
-    return highest;
-  }
-
-  for (let i = 0; i < listing.bids.length; i++) {
-    const bid = listing.bids[i];
-    const amount = bid && bid.amount ? Number(bid.amount) : 0;
-
-    if (amount > highest) {
-      highest = amount;
-    }
-  }
-
-  return highest;
-}
-
 
 // ---------- render card ----------
 function renderMyListingCard(listing) {

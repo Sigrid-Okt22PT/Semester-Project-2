@@ -1,4 +1,3 @@
-// js/ui/auth-ui.js
 import { getStoredProfile, logout } from "../script.js";
 
 export function setupAuthUI() {

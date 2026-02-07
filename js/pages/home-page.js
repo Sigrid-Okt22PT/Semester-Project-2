@@ -3,6 +3,8 @@ setupAuthUI();
 
 import { logout } from "../script.js";
 import { listListings, searchListings } from "../listings.js";
+import { getHighestBid } from "../utils/bids.js";
+
 
 // ---------- DOM ----------
 const listingsGrid = document.querySelector("[data-listings]");
@@ -41,24 +43,6 @@ function emptyMessage(msg = "No listings found.") {
     "col-span-full text-center text-navy bg-white border border-gray-200 p-6 rounded";
   box.textContent = msg;
   return box;
-}
-
-// ---------- bids helper ----------
-function getHighestBid(listing) {
-  // Default if no bids
-  let highest = 0;
-
-  if (!listing) return highest;
-  if (!listing.bids) return highest;
-  if (!Array.isArray(listing.bids)) return highest;
-
-  for (let i = 0; i < listing.bids.length; i++) {
-    const bid = listing.bids[i];
-    const amount = bid && bid.amount ? Number(bid.amount) : 0;
-    if (amount > highest) highest = amount;
-  }
-
-  return highest;
 }
 
 // ---------- render ----------
