@@ -44,6 +44,11 @@ const editForm = document.querySelector("[data-edit-form]");
 const editErr = document.querySelector("[data-edit-error]");
 const editOk = document.querySelector("[data-edit-success]");
 
+// Image modal
+const imageModal = document.querySelector("#imageModal");
+const modalImage = document.querySelector("#modalImage");
+const closeModal = document.querySelector("#closeModal");
+
 // Simple UI helpers
 function setFeedback(msg) {
   if (feedback) feedback.textContent = msg || "";
@@ -120,15 +125,47 @@ function renderGallery(media) {
     const m = media[i];
     if (!m || !m.url) continue;
 
-    const img = document.createElement("img");
-    img.src = m.url;
-    img.alt = m.alt ? m.alt : "Listing image";
-    img.className = "w-full h-28 object-cover rounded border border-gray-200";
+    const thumb = document.createElement("button");
+    thumb.type = "button";
+    thumb.className =
+      "block rounded-xl overflow-hidden border border-gray-200 hover:border-yellow transition";
 
-    frag.appendChild(img);
+    // make it accessible (keyboard + screen readers)
+    const alt = m.alt ? m.alt : "Listing image";
+
+    thumb.innerHTML =
+      '<img src="' +
+      m.url +
+      '" alt="' +
+      alt +
+      '" class="w-full h-24 object-cover">';
+
+    // click -> open modal
+    thumb.addEventListener("click", () => {
+      openImageModal(m.url, alt);
+    });
+
+    frag.appendChild(thumb);
   }
 
   gallery.appendChild(frag);
+}
+
+function openImageModal(url, alt) {
+  if (!imageModal || !modalImage) return;
+
+  modalImage.src = url;
+  modalImage.alt = alt || "Large image";
+
+  imageModal.classList.remove("hidden");
+  imageModal.classList.add("flex");
+}
+
+function closeImageModal() {
+  if (!imageModal) return;
+
+  imageModal.classList.add("hidden");
+  imageModal.classList.remove("flex");
 }
 
 // Render bids (table)
@@ -180,10 +217,10 @@ function renderBids(bids) {
     const tr = document.createElement("tr");
     tr.className = "border-t border-gray-200";
     tr.innerHTML =
-      '<td class="p-3 text-navy font-medium">' +
+      '<td class="p-3 text-navy">' +
       bidderName +
       "</td>" +
-      '<td class="p-3 text-navy font-bold">' +
+      '<td class="p-3 text-navy ">' +
       amountText +
       "</td>" +
       '<td class="p-3 text-gray-600">' +
@@ -399,6 +436,25 @@ if (deleteBtn) {
     }
   });
 }
+
+// Close modal button
+if (closeModal) {
+  closeModal.addEventListener("click", () => {
+    closeImageModal();
+  });
+}
+
+// Close modal when clicking the background
+if (imageModal) {
+  imageModal.addEventListener("click", (e) => {
+    if (e.target === imageModal) closeImageModal();
+  });
+}
+
+// Close modal with Esc key
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeImageModal();
+});
 
 // Initial load
 load();
