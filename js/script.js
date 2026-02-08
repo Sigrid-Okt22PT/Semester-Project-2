@@ -40,6 +40,7 @@ export function readJWT() {
 }
 
 export function requireAuth(redirectTo) {
+  // If no token, redirect to main page since not everything is protected and we don't want to break the UX by forcing login for everyone
   if (!redirectTo) redirectTo = "../index.html";
 
   const token = localStorage.getItem(TOKEN_KEY);

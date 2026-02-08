@@ -4,8 +4,10 @@ setupAuthUI();
 import { logout, requireAuth } from "../script.js";
 import { createListing } from "../listings.js";
 
-// must be logged in to create a listing
-requireAuth("../index.html");
+// must be logged in to view profile
+if (!requireAuth()) {
+  throw new Error("Not authenticated");
+}
 
 // ---------- logout ----------
 const logoutLinks = document.querySelectorAll("[data-logout]");
