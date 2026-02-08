@@ -79,7 +79,7 @@
       <!-- Mobile menu -->
       <details class="md:hidden relative">
         <summary
-          class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
+          class="cursor-pointer p-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow list-none"
           aria-label="Open menu"
         >
           <svg
@@ -104,7 +104,7 @@
           <a
             href="../auth/login.html"
             data-guest-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
           >
             <i class="fa-solid fa-user text-lg"></i>
             Login
@@ -113,7 +113,7 @@
           <a
             href="../auth/index.html"
             data-guest-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
           >
             <i class="fa-solid fa-user-plus text-lg"></i>
             Sign up
@@ -123,7 +123,7 @@
           <a
             href="../profile/"
             data-user-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
           >
             <i class="fa-solid fa-circle-user text-lg"></i>
             Profile
@@ -132,7 +132,7 @@
           <a
             href="../listings/create.html"
             data-user-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
           >
             <i class="fa-solid fa-plus text-lg"></i>
             New listing
@@ -142,7 +142,7 @@
             href="#"
             data-user-only
             data-logout
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
           >
             <i class="fa-solid fa-right-from-bracket text-lg"></i>
             Logout
@@ -152,108 +152,140 @@
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-6 md:px-8">
-      <div class="flex items-start justify-between gap-4 flex-wrap">
-        <div>
-          <h1 class="text-2xl text-navy mb-1">Create listing</h1>
-          <p class="text-gray-700">
-            Add a title, deadline, gallery and description.
-          </p>
-        </div>
-        <a href="../" class="text-navy hover:text-yellow font-medium">
-          ← Back to listings
-        </a>
-      </div>
-
-      <section
-        class="mt-6 bg-white border border-gray-200 rounded-2xl p-5 shadow-sm"
-      >
-        <form data-create-form class="space-y-4">
-          <div>
-            <label for="title" class="text-sm text-navy">Title</label>
-            <input
-              id="title"
-              name="title"
-              type="text"
-              class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              placeholder="Auction item"
-              required
-            />
-          </div>
-
-          <div>
-            <label for="deadline" class="text-sm text-navy">Deadline</label>
-            <input
-              id="deadline"
-              name="endsAt"
-              type="datetime-local"
-              class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              required
-            />
-            <p class="text-xs text-gray-500 mt-1">Choose a future date/time.</p>
-          </div>
-
-          <div>
-            <label for="description" class="text-sm text-navy"
-              >Description</label
-            >
-            <textarea
-              id="description"
-              name="description"
-              rows="4"
-              class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-              placeholder="Tell bidders what they get..."
-            ></textarea>
-          </div>
-
-          <div class="border-t border-gray-200 pt-4">
-            <h2 class="font-bold text-navy mb-2">Media gallery (optional)</h2>
-            <p class="text-sm text-gray-600 mb-3">
-              Add up to 4 image URLs. (You can leave them blank.)
+      <section class="mt-6 bg-white rounded-2xl shadow-sm p-6 md:p-8">
+        <div
+          class="flex flex-col md:flex-row md:items-end md:justify-between gap-4"
+        >
+          <div class="max-w-2xl">
+            <h1 class="text-3xl md:text-4xl text-navy tracking-tight">
+              Create listing
+            </h1>
+            <p class="text-gray-700 mt-2 leading-relaxed">
+              Add a title, deadline, gallery and description.
             </p>
+          </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <a
+            href="../"
+            class="inline-flex items-center gap-2 text-navy hover:text-yellow font-semibold"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to listings
+          </a>
+        </div>
+      </section>
+
+      <section class="mt-6 bg-white rounded-2xl p-5 shadow-sm overflow-hidden">
+        <div class="p-5 md:p-8">
+          <form data-create-form class="space-y-6">
+            <div>
+              <label for="title" class="px-4 font-semibold text-sm text-navy"
+                ><i class="fa-solid fa-tag text-yellow"></i> Title</label
+              >
               <input
-                name="media1"
-                type="url"
-                placeholder="https://image1..."
-                class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                aria-label="Url for image 1 input"
-              />
-              <input
-                name="media2"
-                type="url"
-                placeholder="https://image2..."
-                class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                aria-label="Url for image 2 input"
-              />
-              <input
-                name="media3"
-                type="url"
-                placeholder="https://image3..."
-                class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                aria-label="Url for image 3 input"
-              />
-              <input
-                name="media4"
-                type="url"
-                placeholder="https://image4..."
-                class="w-full p-2 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                aria-label="Url for image 4 input"
+                id="title"
+                name="title"
+                type="text"
+                class="w-full p-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                placeholder="Auction item"
+                required
               />
             </div>
-          </div>
 
-          <button
-            name="create"
-            type="submit"
-            class="w-full bg-yellow text-black py-4 rounded-2xl hover:bg-navy hover:text-yellow transition"
-          >
-            <i class="fa-solid fa-plus"></i> Create listing
-          </button>
+            <div>
+              <label for="deadline" class="px-4 font-semibold text-sm text-navy"
+                ><i class="fa-solid fa-clock text-yellow"></i> Deadline</label
+              >
+              <input
+                id="deadline"
+                name="endsAt"
+                type="datetime-local"
+                class="w-full p-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                required
+              />
+              <p class="px-4 text-xs text-gray-500 mt-1">
+                Choose a future date/time.
+              </p>
+            </div>
 
-          <p class="text-sm text-red" data-error></p>
-          <p class="text-sm text-green" data-success></p>
-        </form>
+            <div>
+              <label
+                for="description"
+                class="px-4 font-semibold text-sm text-navy"
+                ><i class="fa-solid fa-file-lines text-yellow"></i>
+                Description</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                rows="4"
+                class="w-full p-3 px-6 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                placeholder="Tell bidders what they get..."
+              ></textarea>
+            </div>
+
+            <div class="border-t border-gray-200 pt-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h2 class="font-bold text-navy mb-2 px-4">
+                    <i class="fa-regular fa-images text-yellow"></i>
+                    Media gallery
+                    <span
+                      class="text-xs font-semibold text-gray-600 bg-light px-2 py-1 rounded-full"
+                    >
+                      Optional
+                    </span>
+                  </h2>
+                  <p class="px-4 text-sm text-gray-600 mb-3">
+                    Add up to 4 image URLs. (You can leave them blank.)
+                  </p>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input
+                      name="media1"
+                      type="url"
+                      placeholder="https://image1..."
+                      class="w-full p-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      aria-label="Url for image 1 input"
+                    />
+                    <input
+                      name="media2"
+                      type="url"
+                      placeholder="https://image2..."
+                      class="w-full p-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      aria-label="Url for image 2 input"
+                    />
+                    <input
+                      name="media3"
+                      type="url"
+                      placeholder="https://image3..."
+                      class="w-full p-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      aria-label="Url for image 3 input"
+                    />
+                    <input
+                      name="media4"
+                      type="url"
+                      placeholder="https://image4..."
+                      class="w-full p-3 px-6 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      aria-label="Url for image 4 input"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              name="create"
+              type="submit"
+              class="w-full bg-yellow text-black py-4 rounded-full hover:bg-navy hover:text-yellow transition"
+            >
+              <i class="fa-solid fa-plus"></i> Create listing
+            </button>
+
+            <p class="text-sm text-red" data-error></p>
+            <p class="text-sm text-green" data-success></p>
+          </form>
+        </div>
       </section>
     </main>
 
