@@ -79,7 +79,7 @@
       <!-- Mobile menu -->
       <details class="md:hidden relative">
         <summary
-          class="cursor-pointer p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow list-none"
+          class="cursor-pointer p-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow list-none"
           aria-label="Open menu"
         >
           <svg
@@ -104,7 +104,7 @@
           <a
             href="./auth/login.html"
             data-guest-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
           >
             <i class="fa-solid fa-user text-lg"></i>
             Login
@@ -113,7 +113,7 @@
           <a
             href="./auth/index.html"
             data-guest-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
           >
             <i class="fa-solid fa-user-plus text-lg"></i>
             Sign up
@@ -123,7 +123,7 @@
           <a
             href="./profile/"
             data-user-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-navy font-semibold text-base hover:bg-yellow hover:text-black transition"
           >
             <i class="fa-solid fa-circle-user text-lg"></i>
             Profile
@@ -132,7 +132,7 @@
           <a
             href="./listings/create.html"
             data-user-only
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-yellow text-black font-semibold text-base hover:bg-navy hover:text-yellow transition"
           >
             <i class="fa-solid fa-plus text-lg"></i>
             New listing
@@ -142,7 +142,7 @@
             href="#"
             data-user-only
             data-logout
-            class="flex items-center gap-3 px-5 py-4 rounded-xl bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
+            class="flex items-center gap-3 px-5 py-4 rounded-full bg-white text-red-600 font-semibold text-base hover:bg-red-100 transition"
           >
             <i class="fa-solid fa-right-from-bracket text-lg"></i>
             Logout
@@ -153,31 +153,36 @@
 
     <!-- MAIN  Grid for auction listings -->
     <main class="flex-grow container mx-auto px-4 py-6 md:px-8">
-      <div class="flex items-start justify-between gap-4 flex-wrap">
-        <div>
-          <h1 class="text-2xl text-navy mb-1">Live auctions</h1>
-          <p class="text-gray-700">
-            Discover listings, track bids, and compete before the deadline.
-          </p>
+      <section class="mt-6 bg-white rounded-2xl p-6 md:p-8">
+        <div
+          class="flex flex-col md:flex-row md:items-end md:justify-between gap-4"
+        >
+          <div class="max-w-2xl">
+            <h1 class="text-3xl md:text-4xl text-navy">Live auctions</h1>
+            <p class="text-gray-700 mt-2">
+              Discover listings, track bids, and place your bid before time runs
+              out.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
       <!-- Desktop search -->
       <form
         data-search-form
-        class="hidden md:flex mx-auto mt-8 w-full max-w-4xl items-center gap-2"
+        class="hidden md:flex mx-auto mt-8 mb-8 w-full max-w-4xl items-center gap-2 bg-white rounded-full"
       >
         <input
           name="search"
           type="search"
           placeholder="Search listings"
-          class="flex-grow p-4 rounded-full text-lg focus:outline-none bg-white text-navy focus:ring-2 focus:ring-yellow"
+          class="flex-grow px-5 py-3 rounded-full text-base focus:outline-none bg-transparent text-navy"
           aria-label="Search input"
         />
 
         <button
           type="submit"
-          class="flex items-center justify-center text-navy px-6 py-4 rounded-2xl hover:text-yellow transition"
+          class="text-navy px-6 py-4 rounded-2xl hover:text-yellow transition"
           aria-label="Search button"
         >
           <i class="fa-solid fa-magnifying-glass text-2xl"></i>
@@ -185,7 +190,7 @@
       </form>
 
       <!-- Mobile search -->
-      <form data-search-form class="mt-4 md:hidden flex items-center">
+      <form data-search-form class="mt-8 mb-8 md:hidden flex items-center">
         <input
           name="search"
           type="search"
@@ -195,7 +200,7 @@
         />
         <button
           type="submit"
-          class="bg-yellow px-4 py-2 rounded-r hover:bg-yellow-700"
+          class="px-4 py-2 rounded-r hover:text-yellow"
           aria-label="Search"
         >
           <i class="fa-solid fa-magnifying-glass text-2xl"></i>

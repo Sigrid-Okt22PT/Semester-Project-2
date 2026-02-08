@@ -1,4 +1,5 @@
 # Biddy – Auction Platform
+
 ![image](https://sigrid-okt22pt-semester-project-2.netlify.app/assets/images/screenshot-homepage.png)
 
 View the hosted website at: https://sigrid-okt22pt-semester-project-2.netlify.app/
@@ -47,35 +48,41 @@ All backend functionality is handled by the Noroff Auction API. This project foc
 To set up and run this project locally, follow these steps:
 
 1. **Clone the repository:**
+
 ```sh
 git clone https://github.com/Sigrid-Okt22PT/Semester-Project-2.git
 ```
 
 2. **Navigate to the project directory:**
+
 ```sh
 cd semester-project-2
 ```
 
 3. **Install dependencies:**
+
 ```sh
 npm install
 ```
 
 4. **Start the development build (Tailwind):**
+
 ```sh
 npm run dev
 ```
 
 5. **Open the project in your browser**
-Use a local server such as Live Server or the Netlify dev server.
+   Use a local server such as Live Server or the Netlify dev server.
 
 ## Usage
 
 ### Visitors (Not logged in)
+
 - Browse and search auction listings
 - View listing details and bids
 
 ### Registered Users
+
 - Register with a `@stud.noroff.no` email
 - Log in and log out
 - Receive 1000 credits on registration
@@ -90,6 +97,7 @@ This project includes both **unit tests** and **end-to-end tests** as required b
 ### Unit Tests (Vitest)
 
 Vitest is used to test core logic and utilities such as:
+
 - register
 - login
 - listings
@@ -97,11 +105,13 @@ Vitest is used to test core logic and utilities such as:
 - authUI
 
 Run unit tests:
+
 ```sh
 npm run test
 ```
 
 Unit tests are located in:
+
 ```
 js/test/
 ```
@@ -109,17 +119,20 @@ js/test/
 ### End-to-End Tests (Playwright)
 
 Playwright is used to test real user flows, including:
+
 - Login
 - Registration
 - Searching listings
 - Creating listings
 
 Run E2E tests:
+
 ```sh
 npm run test:e2e
 ```
 
 Show Playwright report:
+
 ```sh
 npx playwright show-report
 ```
@@ -141,11 +154,10 @@ OBS! The login test will not work without an already registered user
 
 The project follows the technical restrictions defined in the brief:
 
-- **CSS Framework:** Tailwind CSS 
-- **Hosting:** Netlify 
-- **Design Tool:** Figma 
-- **Planning Tool:** GitHub Projects 
-
+- **CSS Framework:** Tailwind CSS
+- **Hosting:** Netlify
+- **Design Tool:** Figma
+- **Planning Tool:** GitHub Projects
 
 ## Contributing
 
@@ -153,13 +165,17 @@ Contributions are welcome.
 
 1. Fork the repository
 2. Create a new branch:
+
 ```sh
 git checkout -b feature-branch
 ```
+
 3. Commit your changes:
+
 ```sh
 git commit -m "Describe your changes"
 ```
+
 4. Push to your fork and open a Pull Request
 
 ## License
