@@ -34,7 +34,7 @@ export function readJWT() {
     if (!payloadBase64) return {};
 
     return JSON.parse(atob(payloadBase64));
-  } catch (e) {
+  } catch {
     return {};
   }
 }
@@ -56,7 +56,7 @@ export function getStoredProfile() {
     const raw = localStorage.getItem(PROFILE_KEY);
     if (!raw) return null;
     return JSON.parse(raw);
-  } catch (e) {
+  } catch {
     return null;
   }
 }
@@ -118,10 +118,11 @@ export async function apiRequest(pathOrUrl, init) {
 
   // parse json safely
   let json = null;
+
   try {
     json = await res.json();
-  } catch (e) {
-    json = null;
+  } catch {
+    // keep json as null if response isn't JSON
   }
 
   // handle errors

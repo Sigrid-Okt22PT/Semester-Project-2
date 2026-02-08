@@ -2,6 +2,7 @@ import { setupAuthUI } from "../ui/auth-ui.js";
 setupAuthUI();
 
 import { logout, requireAuth, getStoredProfile } from "../script.js";
+import { getHighestBid } from "../utils/bids.js";
 import {
   getProfile,
   getCredits,
@@ -44,25 +45,6 @@ function setSuccess(msg) {
   if (okEl) okEl.textContent = msg || "";
   if (errEl) errEl.textContent = "";
 }
-function getHighestBid(listing) {
-  let highest = 0;
-
-  if (!listing || !listing.bids || !Array.isArray(listing.bids)) {
-    return highest;
-  }
-
-  for (let i = 0; i < listing.bids.length; i++) {
-    const bid = listing.bids[i];
-    const amount = bid && bid.amount ? Number(bid.amount) : 0;
-
-    if (amount > highest) {
-      highest = amount;
-    }
-  }
-
-  return highest;
-}
-
 
 // ---------- render card ----------
 function renderMyListingCard(listing) {
@@ -112,50 +94,44 @@ function renderMyListingCard(listing) {
   let id = "";
   if (listing && listing.id) id = listing.id;
 
-    // highest bid
+  // highest bid
   const highestBid = getHighestBid(listing);
 
+  const article = document.createElement("article");
+  article.className =
+    "bg-white rounded-2xl border border-yellow overflow-hidden ";
 
-const article = document.createElement("article");
-article.className =
-  "bg-white rounded-2xl border border-yellow overflow-hidden "
-
-article.innerHTML =
-  '<img src="' +
-  img +
-  '" alt="' +
-  alt +
-  '" class="h-44 mx-auto object-cover mt-4 rounded-2xl">' +
-
-  '<div class="p-4 space-y-2 flex-grow">' +
+  article.innerHTML =
+    '<img src="' +
+    img +
+    '" alt="' +
+    alt +
+    '" class="h-44 mx-auto object-cover mt-4 rounded-2xl">' +
+    '<div class="p-4 space-y-2 flex-grow">' +
     '<h3 class="text-xl text-navy">' +
-      title +
+    title +
     "</h3>" +
     '<p class="text-gray-300">' +
-      details +
+    details +
     "</p>" +
-
     '<div class="flex items-center justify-between pt-2">' +
-      '<span class="text-navy text-2xl">' +
-        (highestBid > 0 ? highestBid : "No bids") +
-      "</span>" +
-
-      '<span class="text-navy">' +
-        endsText +
-      "</span>" +
+    '<span class="text-navy text-2xl">' +
+    (highestBid > 0 ? highestBid : "No bids") +
+    "</span>" +
+    '<span class="text-navy">' +
+    endsText +
+    "</span>" +
     "</div>" +
-  "</div>" +
-
-  '<a class="mt-auto block text-yellow ' +
-  'p-4 text-center text-xl hover:text-navy" ' +
-  'href="../listings/details.html?id=' +
+    "</div>" +
+    '<a class="mt-auto block text-yellow ' +
+    'p-4 text-center text-xl hover:text-navy" ' +
+    'href="../listings/details.html?id=' +
     encodeURIComponent(id) +
-  '">' +
+    '">' +
     "Go to bid details" +
-  "</a>";
+    "</a>";
 
-return article;
-
+  return article;
 }
 
 // ---------- init ----------
@@ -210,7 +186,7 @@ async function init() {
   try {
     const credits = await getCredits(name);
     if (elCredits) elCredits.textContent = String(credits);
-  } catch (e) {
+  } catch {
     // not fatal, just show 0 if it fails
     if (elCredits) elCredits.textContent = "0";
   }

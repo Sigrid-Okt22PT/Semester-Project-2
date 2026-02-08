@@ -80,6 +80,49 @@ export async function createListing(payload) {
 }
 
 /**
+ * Update a listing (auth)
+ * PUT /auction/listings/<id>
+ *
+ * @param {string} id
+ * @param {{ title?: string, description?: string, endsAt?: string, media?: Array<{url:string, alt?:string}>, tags?: string[] }} payload
+ * @returns {Promise<{data:any, meta:any}>}
+ */
+export async function updateListing(id, payload) {
+  requireAuth();
+
+  if (!id) throw new Error("Listing id is required");
+
+  // Simple frontend validation (optional)
+  if (payload && payload.endsAt) {
+    const d = new Date(payload.endsAt);
+    if (Number.isNaN(d.getTime())) {
+      throw new Error("endsAt must be a valid date");
+    }
+  }
+
+  return apiAuction("/listings/" + encodeURIComponent(id), {
+    method: "PUT",
+    body: JSON.stringify(payload || {}),
+  });
+}
+
+/**
+ * Delete a listing (auth)
+ * DELETE /auction/listings/<id>
+ * @param {string} id
+ * @returns {Promise<void>}
+ */
+export async function deleteListing(id) {
+  requireAuth();
+
+  if (!id) throw new Error("Listing id is required");
+
+  await apiAuction("/listings/" + encodeURIComponent(id), {
+    method: "DELETE",
+  });
+}
+
+/**
  * Add a bid (auth).
  * POST /auction/listings/<id>/bids
  *
