@@ -9,12 +9,12 @@ export function setupAuthUI() {
 
   // show/hide guest-only
   for (let i = 0; i < guestOnly.length; i++) {
-    guestOnly[i].style.display = isLoggedIn ? "none" : "";
+    guestOnly[i].classList.toggle("hidden", isLoggedIn);
   }
 
   // show/hide user-only
   for (let i = 0; i < userOnly.length; i++) {
-    userOnly[i].style.display = isLoggedIn ? "" : "none";
+    userOnly[i].classList.toggle("hidden", !isLoggedIn);
   }
 
   // set credits if element exists
