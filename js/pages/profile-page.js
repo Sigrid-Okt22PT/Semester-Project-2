@@ -11,7 +11,10 @@ import {
 } from "../profiles.js";
 
 // must be logged in to view profile
-requireAuth("../index.html");
+if (!requireAuth()) {
+  throw new Error("Not authenticated");
+}
+
 
 // ---------- logout ----------
 const logoutLinks = document.querySelectorAll("[data-logout]");
