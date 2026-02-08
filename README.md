@@ -74,6 +74,16 @@ npm run dev
 5. **Open the project in your browser**
    Use a local server such as Live Server or the Netlify dev server.
 
+## Code quality
+
+This project uses ESLint to help maintain consistent code style and catch common errors during development.
+
+Linting is not required to run the project, but can be run during development with:
+
+```bash
+npm run lint
+```
+
 ## Usage
 
 ### Visitors (Not logged in)
@@ -129,6 +139,12 @@ Run E2E tests:
 
 ```sh
 npm run test:e2e
+```
+
+Run E2E tests in interactive mode:
+
+```sh
+ npm run test:e2e-ui
 ```
 
 Show Playwright report:
