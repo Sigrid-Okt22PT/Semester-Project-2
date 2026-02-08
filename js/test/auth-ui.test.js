@@ -63,7 +63,9 @@ describe("setupAuthUI", () => {
     expect(userOnly[1].style.display).toBe("");
 
     // Credits should show the stored value
-    expect(document.querySelector("[data-nav-credits]").textContent).toBe("1000");
+    expect(document.querySelector("[data-nav-credits]").textContent).toBe(
+      "1000",
+    );
   });
 
   it("calls logout when clicking a logout link", () => {

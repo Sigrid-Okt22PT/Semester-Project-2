@@ -9,13 +9,11 @@ test.describe("login", () => {
       .locator('input[name="password"]')
       .fill(process.env.E2E_USER_PASSWORD);
 
-   await page.getByRole("button", { name: /login/i }).click();
-
-
+    await page.getByRole("button", { name: /login/i }).click();
 
     // Logged in = a user-only logout link is visible
     await expect(
-      page.locator("[data-user-only][data-logout]").first()
+      page.locator("[data-user-only][data-logout]").first(),
     ).toBeVisible();
   });
 

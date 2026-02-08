@@ -1,14 +1,16 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("registration", () => {
-  test("successful registration sends request and redirects", async ({ page }) => {
+  test("successful registration sends request and redirects", async ({
+    page,
+  }) => {
     await page.route("**/auth/register", (route) =>
       route.fulfill({
         status: 200,
         json: {
           data: { name: "Test User", email: "success@stud.noroff.no" },
         },
-      })
+      }),
     );
 
     await page.goto("/auth/index.html");
@@ -35,7 +37,7 @@ test.describe("registration", () => {
       route.fulfill({
         status: 400,
         json: { errors: [{ message: "Registration failed" }] },
-      })
+      }),
     );
 
     await page.goto("/auth/index.html");
@@ -48,7 +50,7 @@ test.describe("registration", () => {
 
     // You DO have a register error element already (you showed it earlier)
     await expect(page.locator("[data-register-error]")).toContainText(
-      "Registration failed"
+      "Registration failed",
     );
   });
 });

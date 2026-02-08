@@ -42,7 +42,7 @@ describe("login", () => {
       login({
         email: "wrong@stud.noroff.no",
         password: "wrongpass",
-      })
+      }),
     ).rejects.toThrow();
   });
 });

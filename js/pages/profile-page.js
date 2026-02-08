@@ -94,50 +94,44 @@ function renderMyListingCard(listing) {
   let id = "";
   if (listing && listing.id) id = listing.id;
 
-    // highest bid
+  // highest bid
   const highestBid = getHighestBid(listing);
 
+  const article = document.createElement("article");
+  article.className =
+    "bg-white rounded-2xl border border-yellow overflow-hidden ";
 
-const article = document.createElement("article");
-article.className =
-  "bg-white rounded-2xl border border-yellow overflow-hidden "
-
-article.innerHTML =
-  '<img src="' +
-  img +
-  '" alt="' +
-  alt +
-  '" class="h-44 mx-auto object-cover mt-4 rounded-2xl">' +
-
-  '<div class="p-4 space-y-2 flex-grow">' +
+  article.innerHTML =
+    '<img src="' +
+    img +
+    '" alt="' +
+    alt +
+    '" class="h-44 mx-auto object-cover mt-4 rounded-2xl">' +
+    '<div class="p-4 space-y-2 flex-grow">' +
     '<h3 class="text-xl text-navy">' +
-      title +
+    title +
     "</h3>" +
     '<p class="text-gray-300">' +
-      details +
+    details +
     "</p>" +
-
     '<div class="flex items-center justify-between pt-2">' +
-      '<span class="text-navy text-2xl">' +
-        (highestBid > 0 ? highestBid : "No bids") +
-      "</span>" +
-
-      '<span class="text-navy">' +
-        endsText +
-      "</span>" +
+    '<span class="text-navy text-2xl">' +
+    (highestBid > 0 ? highestBid : "No bids") +
+    "</span>" +
+    '<span class="text-navy">' +
+    endsText +
+    "</span>" +
     "</div>" +
-  "</div>" +
-
-  '<a class="mt-auto block text-yellow ' +
-  'p-4 text-center text-xl hover:text-navy" ' +
-  'href="../listings/details.html?id=' +
+    "</div>" +
+    '<a class="mt-auto block text-yellow ' +
+    'p-4 text-center text-xl hover:text-navy" ' +
+    'href="../listings/details.html?id=' +
     encodeURIComponent(id) +
-  '">' +
+    '">' +
     "Go to bid details" +
-  "</a>";
+    "</a>";
 
-return article;
-
+  return article;
 }
 
 // ---------- init ----------

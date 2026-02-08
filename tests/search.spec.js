@@ -19,7 +19,7 @@ test.describe("search", () => {
           ],
           meta: { page: 1, pageCount: 1, count: 1 },
         },
-      })
+      }),
     );
 
     await page.goto("/", { waitUntil: "domcontentloaded" });

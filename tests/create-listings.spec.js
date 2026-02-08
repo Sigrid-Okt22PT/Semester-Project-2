@@ -11,7 +11,7 @@ test.describe("create listing", () => {
           name: "TestUser",
           email: "test@stud.noroff.no",
           credits: 1000,
-        })
+        }),
       );
     });
 
@@ -41,9 +41,7 @@ test.describe("create listing", () => {
 
     // Fill out the form
     await page.locator('input[name="title"]').fill("My Test Listing");
-    await page
-      .locator('input[name="endsAt"]')
-      .fill("2099-12-31T12:00");
+    await page.locator('input[name="endsAt"]').fill("2099-12-31T12:00");
     await page
       .locator('textarea[name="description"]')
       .fill("A test description");

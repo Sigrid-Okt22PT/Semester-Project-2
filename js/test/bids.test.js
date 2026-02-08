@@ -12,11 +12,7 @@ describe("getHighestBid", () => {
 
   it("returns the highest bid amount when bids exist", () => {
     const listing = {
-      bids: [
-        { amount: 100 },
-        { amount: 250 },
-        { amount: 75 },
-      ],
+      bids: [{ amount: 100 }, { amount: 250 }, { amount: 75 }],
     };
 
     const result = getHighestBid(listing);
@@ -34,11 +30,7 @@ describe("getHighestBid", () => {
 
   it("handles invalid bid values safely", () => {
     const listing = {
-      bids: [
-        { amount: "not-a-number" },
-        {},
-        { amount: 500 },
-      ],
+      bids: [{ amount: "not-a-number" }, {}, { amount: 500 }],
     };
 
     const result = getHighestBid(listing);

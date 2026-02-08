@@ -56,7 +56,7 @@ export function getStoredProfile() {
     const raw = localStorage.getItem(PROFILE_KEY);
     if (!raw) return null;
     return JSON.parse(raw);
-  } catch{
+  } catch {
     return null;
   }
 }
@@ -117,14 +117,13 @@ export async function apiRequest(pathOrUrl, init) {
   });
 
   // parse json safely
-let json = null;
+  let json = null;
 
-try {
-  json = await res.json();
-} catch {
-  // keep json as null if response isn't JSON
-}
-
+  try {
+    json = await res.json();
+  } catch {
+    // keep json as null if response isn't JSON
+  }
 
   // handle errors
   if (!res.ok) {

@@ -242,6 +242,59 @@
           </div>
         </div>
       </section>
+      <!-- Owner-only actions -->
+      <section data-owner-actions class="mt-6 hidden">
+        <div class="flex gap-3 flex-wrap">
+          <button
+            type="button"
+            data-edit-toggle
+            class="bg-yellow text-black px-4 py-2 rounded-2xl font-semibold hover:bg-yellow-700"
+          >
+            Edit listing
+          </button>
+
+          <button
+            type="button"
+            data-delete
+            class="bg-red-600 text-white px-4 py-2 rounded-2xl font-semibold hover:bg-red-700"
+          >
+            Delete listing
+          </button>
+        </div>
+
+        <!-- Edit form (hidden until toggle) -->
+        <form
+          data-edit-form
+          class="mt-4 hidden space-y-3 bg-white p-4 rounded-2xl border border-gray-200"
+        >
+          <div>
+            <label class="block text-sm text-navy mb-1">Title</label>
+            <input
+              name="title"
+              class="w-full p-2 rounded-2xl border border-gray-300"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm text-navy mb-1">Description</label>
+            <textarea
+              name="description"
+              rows="4"
+              class="w-full p-2 rounded-2xl border border-gray-300"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="bg-navy text-yellow px-4 py-2 rounded-2xl font-semibold hover:bg-yellow hover:text-navy"
+          >
+            Save changes
+          </button>
+
+          <p data-edit-error class="text-red-600 text-sm"></p>
+          <p data-edit-success class="text-green-600 text-sm"></p>
+        </form>
+      </section>
 
       <!-- Media gallery -->
       <section class="mt-6">

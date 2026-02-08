@@ -5,7 +5,6 @@ import { logout } from "../script.js";
 import { listListings, searchListings } from "../listings.js";
 import { getHighestBid } from "../utils/bids.js";
 
-
 // ---------- DOM ----------
 const listingsGrid = document.querySelector("[data-listings]");
 const feedback = document.querySelector("[data-feedback]");

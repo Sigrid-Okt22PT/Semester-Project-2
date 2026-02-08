@@ -34,7 +34,7 @@ describe("register", () => {
         name: "John",
         email: "john@gmail.com",
         password: "password123",
-      })
+      }),
     ).rejects.toThrow("Email must be @stud.noroff.no");
   });
 });
